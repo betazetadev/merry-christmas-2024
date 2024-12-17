@@ -1,99 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Santa and Reindeer Animation</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      background: #0a0a32;
-      font-family: 'Courier New', Courier, monospace;
-    }
-    .merry-christmas {
-      position: absolute;
-      top: 10%;
-      width: 100%;
-      text-align: center;
-      font-weight: bold;
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff;
-      animation: blinkColors 4s infinite alternate;
-      z-index: 9999;
-      pointer-events: none;
-      line-height: 1;
-    }
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Santa and Reindeer Animation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #0a0a32;
+            font-family: 'Courier New', Courier, monospace;
+        }
 
-    .merry-christmas .line {
-      display: block; 
-      font-size: 8vw; 
-      margin: 0; 
-      animation: blinkColors 4s infinite alternate;
-    }
+        .merry-christmas {
+            position: absolute;
+            top: 10%;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+            animation: blinkColors 4s infinite alternate;
+            z-index: 9999;
+            pointer-events: none;
+            line-height: 1;
+        }
 
-    @keyframes fadeOutSlide {
-      0% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-    }
+        .merry-christmas .line {
+            display: block;
+            font-size: 8vw;
+            margin: 0;
+            animation: blinkColors 4s infinite alternate;
+        }
 
-    .tap-message {
-      position: absolute;
-      bottom: 10%; 
-      left: 5%;
-      font-size: 2vw;
-      font-weight: bold;
-      text-shadow: 0 0 5px #fff, 0 0 10px #fff;
-      color: #ff0000;
-      animation: blinkColors 2s infinite alternate;
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 1s ease-out; 
-    }
+        @keyframes fadeOutSlide {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+        }
 
-    .tap-message i {
-      font-size: 2.5vw;
-      color: #ffd700;
-      text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
-    }
+        .tap-message {
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            font-size: 2vw;
+            font-weight: bold;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+            color: #ff0000;
+            animation: blinkColors 2s infinite alternate;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 1s ease-out;
+        }
 
-    .tap-message.fade-out {
-      animation: fadeOutSlide 1s forwards;
-    }
+        .tap-message i {
+            font-size: 2.5vw;
+            color: #ffd700;
+            text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
+        }
 
-    @keyframes blinkColors {
-      0% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
-      25% { color: #00ff00; text-shadow: 0 0 10px #00ff00; }
-      50% { color: #ffd700; text-shadow: 0 0 10px #ffd700; }
-      75% { color: #ffffff; text-shadow: 0 0 10px #ffffff; }
-      100% { color: #ff0000; text-shadow: 0 0 10px #ff0000; }
-    }
-  </style>
+        .tap-message.fade-out {
+            animation: fadeOutSlide 1s forwards;
+        }
+
+        @keyframes blinkColors {
+            0% {
+                color: #ff0000;
+                text-shadow: 0 0 10px #ff0000;
+            }
+            25% {
+                color: #00ff00;
+                text-shadow: 0 0 10px #00ff00;
+            }
+            50% {
+                color: #ffd700;
+                text-shadow: 0 0 10px #ffd700;
+            }
+            75% {
+                color: #ffffff;
+                text-shadow: 0 0 10px #ffffff;
+            }
+            100% {
+                color: #ff0000;
+                text-shadow: 0 0 10px #ff0000;
+            }
+        }
+
+        #bzd-logo {
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+            width: 75px; /* Adjust the size as needed */
+            height: auto;
+            z-index: 10000; /* Ensure it is on top of other elements */
+        }
+    </style>
 </head>
 <body>
-  <h1 class="merry-christmas">
+<img src="assets/bzd_logo.png" id="bzd-logo" alt="BZD Logo">
+<h1 class="merry-christmas">
     <span class="line">Merry</span>
     <span class="line">Christmas!!</span>
-  </h1>
-  <div class="tap-message" id="tap-message">
+</h1>
+<div class="tap-message" id="tap-message">
     <i>🔊</i> Tap to play the music!
-  </div>
-  <!-- Main background music -->
-  <audio id="background-music" loop>
-    <source src="assets/christmas_song.mp3" type="audio/mpeg" />
+</div>
+<!-- Main background music -->
+<audio id="background-music" loop>
+    <source src="assets/christmas_song.mp3" type="audio/mpeg"/>
     Your browser does not support the audio element.
-  </audio>
-  <script src="model/snowflake.js"></script>
-  <script src="model/firework.js"></script>
-  <script src="sketch.js"></script>
+</audio>
+<script src="model/snowflake.js"></script>
+<script src="model/firework.js"></script>
+<script src="sketch.js"></script>
 </body>
 </html>
 

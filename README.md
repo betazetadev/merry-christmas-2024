@@ -11,10 +11,11 @@ This project is a Dockerized web application served via **Nginx**. It includes i
 - Exploding fireworks 🎆
 - Merry Christmas message with glowing effects ✨
 - Background music and an interactive *"Ho Ho Ho"* sound effect 📢
+- A lighting moon and twinkling stars 🌙✨
 
 ## 🚀 Features
 
-- **Interactive animations**: Watch Santa and his reindeer soar across the sky with dynamic snowflakes and fireworks.
+- **Animations**: Watch Santa and his reindeer soar across the sky with dynamic snowflakes and fireworks.
 - **Background Music**: Starts when the user interacts with the screen.
 - **Ho Ho Ho Sound**: Play a spooky 'Ho Ho Ho' sound when tapping the screen again.
 - **Responsive Design**: Full-screen experience optimized for different devices.
@@ -25,7 +26,7 @@ This project is a Dockerized web application served via **Nginx**. It includes i
 To run the web app locally, ensure you have:
 
 - **Docker** installed on your machine.
-- A registered domain/subdomain for external access (e.g., `xmas.domain`).
+- A registered domain/subdomain for external/public access (e.g., `xmas.domain`). (Optional)
 
 ## 🛠️ Installation
 
@@ -37,7 +38,7 @@ Follow these steps to set up and run the project:
    cd merry-christmas-2024
    ```
 
-2. **Create Required Files**:
+2. **Check Required Files**:
    Ensure your audio files (`christmas_song.mp3` and `hohoho.mp3`) are placed in the `assets` folder.
 
 3. **Build and Run Docker Containers**:
@@ -77,18 +78,6 @@ Follow these steps to set up and run the project:
 └── README.md                    # You're reading this! 🎉
 ```
 
-## 🌐 Deployment
-
-To make the app publicly accessible:
-
-1. Configure your subdomain (e.g., `xmas.domain`) to point to your server's IP address.
-2. Update the `nginx/default.conf` file to include the correct server name.
-3. Rebuild and restart the Docker container:
-   ```bash
-   docker-compose down
-   docker-compose up -d --build
-   ```
-
 ## 🎅 Credits
 
 - **Animations**: Created with [p5.js](https://p5js.org/).
@@ -96,9 +85,9 @@ To make the app publicly accessible:
 
 ### 🎶 Audio Credits
 
-- **Christmas Song**: [Alberto Méndez Cabrera](https://albertomendez.me)
+- **Christmas Song**: [Alberto Méndez](https://albertomendez.me)
 - **Ho Ho Ho Clip**: [Ho Ho Ho, Merry Christmas! from Cloud-10](https://freesound.org/people/Cloud-10/sounds/536245/)
-  modified with Audacity for a spooky effect.
+  modified with [Audacity](https://www.audacityteam.org/) for a spooky effect.
 
 ## 📜 License
 

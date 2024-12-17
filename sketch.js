@@ -80,7 +80,10 @@ function mousePressed() {
     hideTapMessage(tapMessage, hohohoMessage);
   } else {
     if (hohohoMessage.style.display === 'flex') {
-      hohohoMessage.style.display = 'none';
+      hohohoMessage.classList.add('fade-out');
+      setTimeout(() => {
+        hohohoMessage.style.display = 'none';
+      }, 1000); // Match the duration of the fade-out animation
     }
     hohoho.currentTime = 0;
     hohoho.play();

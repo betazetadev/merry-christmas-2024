@@ -95,16 +95,41 @@
 
         #bzd-logo {
             position: absolute;
-            bottom: 25px;
+            bottom: 75px;
             right: 25px;
             width: 75px; /* Adjust the size as needed */
             height: auto;
             z-index: 10000; /* Ensure it is on top of other elements */
         }
+
+        #github-link {
+            position: absolute;
+            bottom: 10px;
+            right: 25px;
+            font-size: 1vw; /* Smaller font size */
+            color: #ffffff;
+            text-decoration: none;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+            animation: blinkColors 4s infinite alternate;
+            z-index: 10000;
+            margin-bottom: 20px; /* Add margin between the logo and the link */
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        @media (max-width: 600px) {
+            #github-link {
+                font-size: 2vw; /* Adjust font size for smaller screens */
+            }
+        }
     </style>
 </head>
 <body>
 <a href="https://betazeta.dev" target="_blank"><img src="assets/bzd_logo.png" id="bzd-logo" alt="BZD Logo"></a>
+<a href="https://github.com/betazetadev/merry-christmas-2024" id="github-link" target="_blank">
+    🎁 <span>GitHub Repo</span>
+</a>
 <h1 class="merry-christmas">
     <span class="line">Merry</span>
     <span class="line">Christmas!!</span>
@@ -125,4 +150,3 @@
 <script src="sketch.js"></script>
 </body>
 </html>
-

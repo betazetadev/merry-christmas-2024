@@ -66,7 +66,7 @@ function setup() {
   }
 
   // Generate snowflakes
-  for (let i = 0; i < 300; i++) {
+  for (let i = 0; i < 150; i++) {
     snowflakes.push(new Snowflake());
   }
 }

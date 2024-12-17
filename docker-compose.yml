@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    image: nginx:latest
+    container_name: merry_christmas_2024
+    build: .
+    ports:
+      - "9090:80"  # Map port 80 of Nginx to port 9090 on your machine
+    volumes:
+      - .:/usr/share/nginx/html  # Mount your local files into the container
+    restart: always

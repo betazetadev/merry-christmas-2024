@@ -72,24 +72,28 @@ function setup() {
 }
 
 function mousePressed() {
-  // If main music is paused, start it and hide the tap message
+  const tapMessage = document.getElementById('tap-message');
+  const hohohoMessage = document.getElementById('hohoho-message');
+
   if (music.paused) {
     music.play();
-    hideTapMessage();
+    hideTapMessage(tapMessage, hohohoMessage);
   } else {
-    // If main music is already playing, play the hohoho clip
+    if (hohohoMessage.style.display === 'flex') {
+      hohohoMessage.style.display = 'none';
+    }
     hohoho.currentTime = 0;
     hohoho.play();
   }
 }
 
-function hideTapMessage() {
-  const message = document.getElementById('tap-message');
-  if (message) {
-    message.classList.add('fade-out');
+function hideTapMessage(tapMessage, hohohoMessage) {
+  if (tapMessage) {
+    tapMessage.classList.add('fade-out');
     setTimeout(() => {
-      message.style.display = 'none';
-    }, 1000);
+      tapMessage.style.display = 'none';
+      hohohoMessage.style.display = 'flex';
+    }, 1000); // Match the duration of the fade-out animation
   }
 }
 

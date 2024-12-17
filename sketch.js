@@ -99,6 +99,13 @@ function hideTapMessage(tapMessage, hohohoMessage) {
 
 function draw() {
   background(10, 10, 50); // Dark sky
+
+  moonGlowIntensity += 0.5 * moonGlowDirection;
+  if (moonGlowIntensity > 80 || moonGlowIntensity < 0) {
+    moonGlowDirection *= -1;
+  }
+
+
   drawMoon();
   drawStars();
   animateStars();
